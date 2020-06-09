@@ -8,7 +8,7 @@
     </div>
   </div>
   <button type="button" class="btn btn-dark m-1" (click)="loadCSV()">Load</button>
-  <button type="button" class="btn btn-dark">Save</button>
+  <button type="button" class="btn btn-dark" (click)="saveToDB(people)">Save</button>
 
   <table class='table table-striped m-3' aria-labelledby="tableLabel" *ngIf="people">
     <thead>

@@ -17,4 +17,8 @@ export class CSVserviceService {
   public getCSVData = (): Promise<Person[]> => {
     return this.http.get<Person[]>(this.url + '/People/CSV').toPromise();
   }
+
+  public saveData = (people: Person[]): Promise<any> => {
+    return this.http.post<Person[]>(this.url + '/People', people).toPromise();
+  }
 }
