@@ -1,0 +1,26 @@
+<div class="jumbtron">
+  <h1 class="diplay-5 text-center">CSV loading and saving</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-7">
+    </div>
+  </div>
+  <button type="button" class="btn btn-dark m-1" (click)="loadCSV()">Load</button>
+  <button type="button" class="btn btn-dark">Save</button>
+
+  <div *ngIf="people">
+    <div *ngFor="let person of people">
+      {{ person.name }}
+      {{ person.surname }}
+    </div>
+  </div>
+
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="loaded">
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
