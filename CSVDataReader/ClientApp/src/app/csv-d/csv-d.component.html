@@ -10,17 +10,32 @@
   <button type="button" class="btn btn-dark m-1" (click)="loadCSV()">Load</button>
   <button type="button" class="btn btn-dark">Save</button>
 
-  <div *ngIf="people">
-    <div *ngFor="let person of people">
-      {{ person.name }}
-      {{ person.surname }}
-    </div>
-  </div>
-
-  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="loaded">
+  <table class='table table-striped m-3' aria-labelledby="tableLabel" *ngIf="loaded">
     <thead>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Postal code</th>
+      <th>City</th>
+      <th>Phone</th>
     </thead>
     <tbody>
+      <tr *ngFor="let person of people">
+        <td>
+          {{ person.name }}
+        </td>
+        <td>
+          {{ person.surname }}
+        </td>
+        <td>
+          {{ person.postalCode }}
+        </td>
+        <td>
+          {{ person.city }}
+        </td>
+        <td>
+          {{ person.phone }}
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

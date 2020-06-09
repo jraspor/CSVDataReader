@@ -21,6 +21,7 @@ export class CsvDComponent implements OnInit {
   loadCSV() {
     this.service.getCSVData().then((result: Person[]) => {
       this.people = result;
+      this.loaded = true;
     });
   }
 }
