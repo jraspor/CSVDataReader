@@ -35,18 +35,22 @@ namespace CSVDataReader.Controllers
         {
             foreach(var person in people)
             {
-                if (PersonExists(person.Name)) continue;
+                if (PersonExists(person)) continue;
                 
                 _context.People.Add(person);
                 await _context.SaveChangesAsync();
             }
             
-            return CreatedAtAction("GetPerson", new { id = people }, people);
+            return CreatedAtAction("GetPerson", new { people }, people);
         }
 
-        private bool PersonExists(string name)
+        private bool PersonExists(Person person)
         {
-            return _context.People.Any(e => e.Name == name);
+            return _context.People.Any(e => e.Name == person.Name 
+                                        && e.Surname == person.Surname 
+                                        && e.PostalCode == person.PostalCode 
+                                        && e.Phone == person.Phone
+                                        && e.City == person.City);
         }
     }
 }
