@@ -18,11 +18,11 @@ namespace CSVDataReader.Models
         [Column(TypeName = "nvarchar(30)")]
         public string Surname { get; set; }
         [Required]
-        public int PostalCode { get; set; }
+        public string PostalCode { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(30)")]
         public string City { get; set; }
         [Required]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
     }
 }

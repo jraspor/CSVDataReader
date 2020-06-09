@@ -14,9 +14,9 @@ namespace CSVDataReader.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(30)", nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    PostalCode = table.Column<int>(nullable: false),
+                    PostalCode = table.Column<string>(nullable: false),
                     City = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    Phone = table.Column<int>(nullable: false)
+                    Phone = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
