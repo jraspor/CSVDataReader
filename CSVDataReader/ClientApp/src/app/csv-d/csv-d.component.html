@@ -10,7 +10,7 @@
   <button type="button" class="btn btn-dark m-1" (click)="loadCSV()">Load</button>
   <button type="button" class="btn btn-dark">Save</button>
 
-  <table class='table table-striped m-3' aria-labelledby="tableLabel" *ngIf="loaded">
+  <table class='table table-striped m-3' aria-labelledby="tableLabel" *ngIf="people">
     <thead>
       <th>Name</th>
       <th>Surname</th>
@@ -19,7 +19,7 @@
       <th>Phone</th>
     </thead>
     <tbody>
-      <tr *ngFor="let person of people">
+      <tr *ngFor="let person of people" [ngClass]="{'table-danger': isNaN(person)}">
         <td>
           {{ person.name }}
         </td>

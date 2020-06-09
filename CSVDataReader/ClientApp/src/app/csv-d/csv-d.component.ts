@@ -5,10 +5,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-csv-d',
   templateUrl: './csv-d.component.html',
-  styles: []
 })
 export class CsvDComponent implements OnInit {
-  loaded = false;
   people: Person[];
 
   constructor(
@@ -21,7 +19,10 @@ export class CsvDComponent implements OnInit {
   loadCSV() {
     this.service.getCSVData().then((result: Person[]) => {
       this.people = result;
-      this.loaded = true;
     });
+  }
+
+  isNaN(person: Person): boolean {
+    return Number.isNaN(Number(person.postalCode));
   }
 }
