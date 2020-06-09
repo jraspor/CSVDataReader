@@ -35,15 +35,18 @@ namespace CSVDataReader.Controllers
         {
             foreach(var person in people)
             {
-                if (_context.People.Any(o => o == person)) continue;
-                else
-                {
-                    _context.People.Add(person);
-                    await _context.SaveChangesAsync();
-                }
+                if (PersonExists(person.Name)) continue;
+                
+                _context.People.Add(person);
+                await _context.SaveChangesAsync();
             }
             
             return CreatedAtAction("GetPerson", new { id = people }, people);
+        }
+
+        private bool PersonExists(string name)
+        {
+            return _context.People.Any(e => e.Name == name);
         }
     }
 }

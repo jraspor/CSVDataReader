@@ -33,7 +33,7 @@ export class CsvDComponent implements OnInit {
   }
 
   saveToDB(people: Person[]) {
-    if (!isNullOrUndefined(people)) {
+    if (people !== null) {
       this.purgeErrors(people);
       this.service.saveData(this.peopleSave);
     } else {
